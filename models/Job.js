@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import db from "../db/connection.js";
 
-export const Job = db.define('job', {
+const Job = db.define('job', {
   title: {
     type: Sequelize.STRING,
   },
@@ -21,3 +21,5 @@ export const Job = db.define('job', {
     type: Sequelize.INTEGER,
   }
 })
+
+export default Job
