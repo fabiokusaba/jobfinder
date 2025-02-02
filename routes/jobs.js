@@ -7,6 +7,10 @@ router.get('/test', (req, res) => {
   res.send('deu certo')
 })
 
+router.get('/add', (req, res) => {
+  res.render('add')
+})
+
 // POST - adicionar job
 router.post('/add', (req, res) => {
   const { title, description, salary, company, email, new_job } = req.body
