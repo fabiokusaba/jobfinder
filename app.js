@@ -4,6 +4,7 @@ import path from 'path'
 import db from './db/connection.js'
 import bodyParser from 'body-parser'
 import jobsRoutes from './routes/jobs.js'
+import Job from './models/Job.js'
 
 const app = express()
 const PORT = 3000
@@ -35,7 +36,12 @@ db
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index')
+  Job.findAll({ 
+    order: [ ['createdAt', 'DESC'] ]
+  })
+  .then(jobs => {
+    res.render('index', { jobs })
+  })
 })
 
 // Jobs Routes
